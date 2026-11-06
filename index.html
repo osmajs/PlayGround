@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#101619">
+  <link rel="icon" href="data:,">
+  <title>Playtime: The Last Shift</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game" aria-label="Playtime: The Last Shift game"></canvas>
+    <div id="hud" class="hidden">
+      <div class="topbar"><div class="brand"><span class="brand-mark">P</span><span>PLAYTIME<span class="brand-lite"> CO.</span><small>THE LAST SHIFT</small></span></div><div class="chapter">CHAPTER 01 <b>·</b> THE FACTORY</div><button id="pause-btn" class="icon-btn" aria-label="Pause">Ⅱ</button></div>
+      <div class="mission"><div class="mission-label">CURRENT OBJECTIVE</div><div id="objective">Find the GrabGlove</div><div class="steps"><i></i><i></i><i></i><i></i></div></div>
+      <div class="hint" id="hint"></div>
+      <div class="bottom-ui"><div class="glove-card"><div class="glove-icon">✳</div><div><b>GRABGLOVE</b><small id="glove-status">OFFLINE</small></div><div class="charge"><i></i><i></i><i></i></div></div><div class="controls-tip"><kbd>W A S D</kbd> MOVE <span>·</span> <kbd>E</kbd> INTERACT <span>·</span> <kbd>CLICK</kbd> GRAB</div></div>
+      <div id="mobile-controls"><div class="pad"><button data-dir="up">▲</button><div><button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button></div></div><button id="mobile-action">GRAB</button></div>
+      <div class="vignette"></div>
+    </div>
+    <section id="title-screen" class="screen">
+      <div class="title-noise"></div><div class="title-content"><div class="eyebrow"><span></span> PLAYTIME CO. PRESENTS <span></span></div><div class="logo"><div class="logo-top">PLAYTIME</div><div class="logo-bottom">AFTER HOURS</div></div><p class="subtitle">THE TOYS DIDN'T GO HOME.</p><div class="title-rule"><i></i> CHAPTER ONE <i></i></div><button id="start-btn" class="start-btn">BEGIN YOUR SHIFT <span>→</span></button><div class="title-foot">A SHORT TOY-FACTORY NIGHTMARE <span>•</span> HEADPHONES RECOMMENDED</div></div>
+      <div class="title-monster"><div class="monster-shadow"></div><div class="monster-head"><div class="ear e1"></div><div class="ear e2"></div><div class="monster-face"><i class="eye one"></i><i class="eye two"></i><div class="smile"></div></div></div><div class="monster-body"></div><div class="title-scan"></div></div>
+      <div class="title-version">NO. 01 — 1989</div>
+    </section>
+    <section id="pause-screen" class="screen overlay hidden"><div class="dialog"><div class="eyebrow">SHIFT PAUSED</div><h2>TAKE A BREATHER.</h2><p>The factory is still waiting.</p><button id="resume-btn" class="start-btn">BACK TO WORK <span>→</span></button></div></section>
+    <section id="end-screen" class="screen overlay hidden"><div class="dialog"><div id="end-eyebrow" class="eyebrow">SHIFT COMPLETE</div><h2 id="end-title">YOU MADE IT OUT.</h2><p id="end-copy">Some toys are better left on the shelf.</p><button id="again-btn" class="start-btn">PLAY AGAIN <span>↻</span></button></div></section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
