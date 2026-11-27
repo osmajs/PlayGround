@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#07111b">
+  <title>Web of the Afterlight</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-root"></div>
+  <div id="menu" class="screen visible">
+    <div class="menu-backdrop"></div>
+    <div class="menu-panel">
+      <div class="eyebrow">A FIRST-PERSON CITY ADVENTURE</div>
+      <h1>WEB OF THE<br><span>AFTERLIGHT</span></h1>
+      <p class="tagline">The city is a web. Every strand leads somewhere.</p>
+      <div class="menu-actions">
+        <button id="start-btn" class="primary">START PATROL <span>↗</span></button>
+        <button id="continue-btn" class="secondary hidden">CONTINUE</button>
+        <button id="credits-btn" class="text-button">CREDITS</button>
+      </div>
+      <div class="menu-foot"><span>ORIGINAL HERO • ORIGINAL CITY</span><span>BUILD 01 / AFTERLIGHT</span></div>
+    </div>
+    <div class="menu-art"><div class="art-halo"></div><div class="art-web">✳</div><div class="art-caption">NIGHT<br>ISN'T<br>OVER.</div></div>
+  </div>
+  <div id="pause-screen" class="screen">
+    <div class="pause-panel">
+      <div class="eyebrow">PATROL PAUSED</div><h2>TAKE A BREATH.</h2>
+      <button id="resume-btn" class="primary">BACK TO THE CITY <span>↗</span></button>
+      <button id="restart-btn" class="secondary">RESTART PATROL</button>
+      <button id="pause-credits-btn" class="text-button">CREDITS</button>
+      <div class="pause-hint">Press <b>ESC</b> to return</div>
+    </div>
+  </div>
+  <div id="credits-screen" class="screen">
+    <div class="credits-panel"><button class="close-btn" id="close-credits">×</button><div class="eyebrow">A SMALL TEAM WITH A BIG CITY</div><h2>CREDITS</h2>
+      <div class="credit-row"><b>GAME DESIGN & CODE</b><span>Afterlight Studio</span></div>
+      <div class="credit-row"><b>WORLD & CHARACTERS</b><span>Original procedural creations</span></div>
+      <div class="credit-row"><b>VOICE</b><span>Your browser's speech synthesis</span></div>
+      <div class="credit-row"><b>THREE-DIMENSIONAL ENGINE</b><span>Three.js</span></div>
+      <p>Made as an original tribute to the joy of swinging through a city. No characters, dialogue, or locations from other games are reproduced.</p>
+    </div>
+  </div>
+  <div id="hud" class="hidden">
+    <div class="hud-top"><div class="brand-mark">AFTER<span>/</span>LIGHT</div><div class="mission-card"><div class="eyebrow">CURRENT THREAD</div><div id="mission-title">A CITY IN STATIC</div><div class="mission-progress"><i id="mission-bar"></i></div><div id="mission-objective">Find the first signal trace</div></div><button id="menu-btn" aria-label="Pause menu">Ⅱ</button></div>
+    <div class="hud-bottom"><div class="vitals"><div class="vital-label">VITALS <span id="health-value">100</span></div><div class="bar"><i id="health-bar"></i></div><div id="air-wrap" class="air hidden"><div class="vital-label">BREATH <span id="air-value">100</span></div><div class="bar air-bar"><i id="air-bar"></i></div></div></div><div id="status-message"></div><div class="controls-card"><kbd>WASD</kbd> MOVE <kbd>SPACE</kbd> JUMP <kbd>CLICK</kbd> WEB-SWING <kbd>SHIFT</kbd> SPRINT <kbd>E</kbd> INTERACT</div></div>
+    <div id="subtitle" class="subtitle"></div><div id="toast" class="toast"></div>
+    <div id="crosshair">+</div><div id="reticle" class="hidden">◉</div>
+    <div class="touch-controls"><div class="touch-pad"><button data-key="w">▲</button><div><button data-key="a">◀</button><button data-key="s">▼</button><button data-key="d">▶</button></div></div><div class="touch-actions"><button data-action="swing">WEB</button><button data-action="jump">JUMP</button><button data-action="interact">USE</button></div></div>
+    <div id="mission-complete" class="mission-complete"><div class="eyebrow">THREAD COMPLETE</div><h2 id="complete-title">CITY IN STATIC</h2><p id="complete-copy">The skyline feels a little safer.</p><button id="next-mission" class="primary">CONTINUE PATROL <span>↗</span></button></div>
+    <div id="game-over" class="game-over"><div class="eyebrow">SIGNAL LOST</div><h2>THE TIDE TOOK YOU.</h2><p>Your patrol can always begin again.</p><button id="retry-btn" class="primary">TRY AGAIN <span>↗</span></button><button id="return-menu-btn" class="text-button">MAIN MENU</button></div>
+  </div>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
