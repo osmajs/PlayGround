@@ -394,6 +394,10 @@ function update(dt){elapsed+=dt;updateImpacts(dt);attackCooldown=Math.max(0,atta
    if(health<=0){gameEnded=true;active=false;$('game-over').classList.add('show');say('Hold on. The city still needs you.');}}
   else{hero.position.y=THREE.MathUtils.damp(hero.position.y,0,5,dt);air=Math.min(100,air+35*dt);$('air-wrap').classList.add('hidden');}
   hero.rotation.y=yaw;
+  const horizontalSpeed=Math.hypot(velocity.x,velocity.z),heroMotion=onWater?0:climbFace?1:Math.min(1,horizontalSpeed/5);
+  animateCharacter(hero,elapsed*(swingTime>0?7:9),heroMotion,heroArmPose);
+  if(heroArmPose===null&&swingTime>0){hero.userData.animation.arms[0].rotation.x=-1.05+Math.sin(elapsed*8)*.2;hero.userData.animation.arms[1].rotation.x=-1.05-Math.sin(elapsed*8)*.2;}
+  else if(heroArmPose===null&&climbFace){hero.userData.animation.arms[0].rotation.x=-.8+Math.sin(elapsed*10)*.35;hero.userData.animation.arms[1].rotation.x=-.8-Math.sin(elapsed*10)*.35;}
   // nearest mission marker and boss threat
   const {target,distance}=nearestObjective();if(target){const angle=Math.atan2(target.x-hero.position.x,target.z-hero.position.z);const names=['N','NE','E','SE','S','SW','W','NW'];const cardinal=names[Math.round(((angle+Math.PI*2)%(Math.PI*2))/(Math.PI/4))%8];if(!onWater)$('status-message').textContent=`${cardinal} · ${Math.round(distance)}m TO THREAD`;
 
